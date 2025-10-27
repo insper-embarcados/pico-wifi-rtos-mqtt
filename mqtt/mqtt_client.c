@@ -18,9 +18,9 @@
 #include "lwip/dns.h"
 #include "lwip/altcp_tls.h"
 
-#define WIFI_SSID "corsi"
-#define WIFI_PASSWORD "123456789"
-#define MQTT_SERVER "10.0.0.202"
+#define WIFI_SSID "Arnaldojr"
+#define WIFI_PASSWORD "12345678"
+#define MQTT_SERVER "broker.hivemq.com"
 
 // Temperature
 #ifndef TEMPERATURE_UNITS
