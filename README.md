@@ -1,5 +1,8 @@
 ## Comunicação Wi-Fi com MQTT
 
+> [!NOTE]  
+> Atualizado para pico-2
+
 Este exemplo é baseado no repositório oficial [`pico-examples`](https://github.com/raspberrypi/pico-examples) e demonstra como enviar e receber dados utilizando o protocolo MQTT via Wi-Fi com a Raspberry Pi Pico `W`.  
 
 ### Objetivo
