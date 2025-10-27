@@ -18,8 +18,8 @@
 #include "lwip/dns.h"
 #include "lwip/altcp_tls.h"
 
-#define WIFI_SSID "Arnaldojr"
-#define WIFI_PASSWORD "12345678"
+#define WIFI_SSID "embarcados-IoT"
+#define WIFI_PASSWORD "Saciperer3"
 #define MQTT_SERVER "broker.hivemq.com"
 
 // Temperature
