@@ -14,11 +14,13 @@ endif()
 # ====================================================================================
 cmake_minimum_required(VERSION 3.12)
 
-set(PICO_BOARD pico_w)
+set(PICO_BOARD pico2_w CACHE STRING "Board type")
+set(FREERTOS_KERNEL_PATH ${CMAKE_CURRENT_SOURCE_DIR}/FreeRTOS-Kernel)
 
 # initialize the SDK based on PICO_SDK_PATH
 # note: this must happen before project()
 include(pico_sdk_import.cmake)
+include(pico_extras_import_optional.cmake)
 
 project(mqtt/pico_emb)
 
@@ -35,6 +37,5 @@ if(CMAKE_C_COMPILER_ID STREQUAL "GNU")
   add_compile_options(-Wno-maybe-uninitialized)
 endif()
 
-add_subdirectory(freertos)
 add_subdirectory(mqtt)
 

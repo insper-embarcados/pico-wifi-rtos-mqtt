@@ -1,6 +1,12 @@
 # Define the host name of the MQTT server in an environment variable or pass it to cmake,
 # e.g. cmake -DMQTT_SERVER=myserver ..
 
+if (NOT FREERTOS_KERNEL_PATH AND NOT DEFINED ENV{FREERTOS_KERNEL_PATH})
+    message("Skipping FreeRTOS examples as FREERTOS_KERNEL_PATH not defined")
+    return()
+endif()
+
+include(FreeRTOS_Kernel_import.cmake)
 
 # Define the name of an MQTT broker/server to enable this example
 set(MQTT_SERVER "${MQTT_SERVER}" CACHE INTERNAL "MQTT server for examples")
@@ -37,6 +43,13 @@ target_link_libraries(${TARGET_NAME}
     pico_lwip_mqtt
     pico_mbedtls
     pico_lwip_mbedtls
+    pico_async_context_freertos
+    FreeRTOS-Kernel-Heap4
+    )
+# Set the nunber of cores to 1.
+# This defaults to 2 in FreeRTOSConfig_examples_common.h if not defined in here
+target_compile_definitions(pico_emb PRIVATE
+    configNUMBER_OF_CORES=1
     )
 target_compile_definitions(${TARGET_NAME} PRIVATE
     WIFI_SSID=\"${WIFI_SSID}\"

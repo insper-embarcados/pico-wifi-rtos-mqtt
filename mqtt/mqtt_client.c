@@ -4,6 +4,10 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
+#include "FreeRTOS.h"
+#include "task.h"
+#include "semphr.h"
+
 //
 // Created by elliot on 25/05/24.
 //
