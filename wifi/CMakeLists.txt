@@ -33,18 +33,16 @@ if (NOT MQTT_CERT_INC)
 endif()
 set(TARGET_NAME pico_emb)
 add_executable(${TARGET_NAME}
-    mqtt_client.c
+    main.c
     )
 target_include_directories(${TARGET_NAME} PRIVATE ${CMAKE_CURRENT_LIST_DIR})
 target_link_libraries(${TARGET_NAME}
     pico_stdlib
     hardware_adc
-    FreeRTOS-Kernel-Heap4
+	FreeRTOS-Kernel-Heap4
     pico_cyw43_arch_lwip_threadsafe_background
-    pico_lwip_mqtt
-    pico_mbedtls
-    pico_lwip_mbedtls
-    # pico_async_context_freertos
+    # pico_cyw43_arch_lwip_sys_freertos
+
     )
 # Set the nunber of cores to 1.
 # This defaults to 2 in FreeRTOSConfig_examples_common.h if not defined in here
